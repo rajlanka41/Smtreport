@@ -1,0 +1,1476 @@
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>SMT Change Over Clearance Report</title>
+
+<style>
+    body {
+        font-family: Arial;
+        font-size: 12px;
+        margin: 20px;
+    }
+
+@media print {
+    select {
+        width: 100% !important;
+        white-space: normal !important;
+        overflow: visible !important;
+        text-overflow: unset !important;
+    }
+
+    td {
+        word-break: break-word !important;
+        white-space: normal !important;
+    }
+
+    table {
+        table-layout: fixed;
+        width: 100%;
+    }
+}
+
+td {
+    font-weight: 600;
+    color: #222;
+}
+    h2 {
+        text-align: center;
+    }
+
+
+@media print {
+    .obs {
+        color: red !important;
+    }
+}
+
+#deviationContainer .deviation {
+    color: red;
+}
+
+@media print {
+    .deviation {
+        color: red !important;
+    }
+}table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+ th, td {
+       border: 1px solid #000;
+        padding: 6px;
+        vertical-align: top;
+    }
+   
+  th {
+    background: #E9ECEF;
+    color: #212529;
+    font-weight: 600;
+    text-align: center;
+    border: 1px solid #000;
+    padding: 8px;
+}
+
+
+    .section {
+    background: linear-gradient( #b3e5fc, #81d4fa);
+    color: #00334d;
+    font-weight: bold;
+    text-align: center;
+    font-size: 13px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    padding: 8px;
+   
+
+   
+}
+
+   input, select {
+        width: 95%;
+        padding: 3px;
+        font-size: 12px;
+    }
+input {
+    width: 95%;
+    padding: 3px;
+    font-size: 12px;
+    border: none;
+    outline: none;
+    background: transparent;
+}
+
+select {
+    width: 95%;
+    padding: 3px;
+    font-size: 12px;
+    font-weight: bold;      /* Make selected value bold */
+    color: #222;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    border: none;
+    outline: none;
+    background: transparent;
+ word-break: break-word;
+}
+
+select option {
+    font-weight: bold;      /* Make dropdown options bold */
+    color: #222;
+
+}
+    textarea {
+        width: 95%;
+        height: 35px;
+        font-size: 12px;
+    }
+
+    .btn {
+        padding: 8px 15px;
+        margin: 10px 0;
+        cursor: pointer;
+    }
+
+select {
+    appearance: none;
+    -webkit-appearance: none; /* Chrome, Safari */
+    -moz-appearance: none;    /* Firefox */
+    background: none;
+
+}
+
+
+
+
+    @media print {
+        .btn {
+            display: none;
+        }
+    }
+</style>
+</head>
+
+<body>
+<div style="width:100%; display:flex; justify-content:space-between; align-items:flex-start;">
+
+    <!-- LEFT: LOGO -->
+    <div style="width:10%; text-align:left;">
+    <img src="logo.jpg" style="height:35px;" alt="Logo">
+</div>
+
+    <!-- CENTER: COMPANY DETAILS -->
+    <div style="width:70%; text-align:center;">
+<div style="font-size:20px; font-weight:bold; color:#0b3d91;">
+    Linkwell Telesystems Pvt Ltd – VISIONTEK
+</div>        <div style="font-size:15px; font-weight:bold; margin-top:9px;">
+            CHANGE OVER CLEARANCE REPORT – SMT BULK LOT ASSEMBLY
+        </div>
+
+        <div style="font-size:13px; margin-top:3px;">
+            (F : 8072A)
+        </div>
+
+    </div>
+
+    <!-- RIGHT: DATE -->
+    <div style="width:15%; text-align:right;">
+        <b>Date :</b><br>
+        <span id="currentDate"></span>
+    </div>
+
+</div>
+<script>
+document.getElementById("currentDate").innerHTML =
+new Date().toLocaleDateString('en-GB');
+</script>
+
+<button class="btn" onclick="printReport()">Export / Save as PDF</button>
+<table>
+
+<tr>
+    <td><b>Subcontractor</b></td>
+    <td>
+        <select>
+            <option>-- Select --</option>
+            <option>In House SMT Line 1</option>
+            <option>MIC Electronics</option>
+            <option>Smart Wave Technologies</option>
+	<option>Embedded IT</option>
+<option>MPL</option>
+            <option>In House SMT Line 2</option>
+        </select>
+    </td>
+
+    <td><b>JOB Qty</b></td>
+    <td><input type="text"></td>
+</tr>
+<tr>
+    <th>Parameter</th>
+    <th>Observations</th>
+<th>Parameter</th>
+    <th>Observations</th>
+   
+</tr>
+
+<tr><td colspan="2" class="section">ASSEMBLING DETAILS</td>
+<td colspan="2" class="section">PRINTER</td>
+</tr>
+
+
+
+<tr>
+    <td>PCB No & Revision</td>
+    <td>
+    <input type="text" style="width:100%;">
+</td>
+    <td>Print Pressure & Squeeze Speed</td>
+<td colspan="1"><input type="text"></td>
+</tr>
+
+
+<tr>
+
+    <td>PCB Description</td>
+       <td ><select>
+            <option>-- Select --</option>
+            <option>1PH-SM-CPU</option>
+            <option>3PH-SM-CPU</option>
+            <option>1PH-EM-CPU</option>
+ <option>3PH-EM-CPU</option>
+ <option>POS CPU</option>
+ <option>SCANNER CPU</option>
+ <option>1PH/3PH SM NIC</option>
+<option>1PH SM NIC</option>
+	        </select>
+</td>
+    <td>Snap Off Distance & Snap Off Speed</td>
+<td colspan="1"><input type="text"></td>
+</tr>
+
+<tr>
+     <td>Product Configuration</td>
+      <td colspan="1"><input type="text"></td>
+<td>Stencil Strength(35 to 50 Newtons/cm)</td>
+<td ><select onchange="stencilStrengthCheck(this)">
+            <option>-- Select --</option><option>Within Limits</option><option>Exceeds Limit</option><option>No Facility</option>
+
+	        </select>
+</td>
+</tr>
+
+<tr>
+   <td>Side Being Assembled</td>
+   
+    <td ><select>
+            <option>-- Select --</option>
+            <option>Bottom</option>
+            <option>Top</option>
+<option>Top/Bottom</option>
+          
+	        </select>
+</td>
+<td>Support tools</td>
+      <td><select onchange="printerToolsCheck(this)">
+            <option>-- Select --</option>
+            <option>Used</option>
+            <option>Not Used</option>
+ <option>NA</option>
+	        </select>
+</td>
+
+</tr>
+
+<tr>
+    <td>BOM Revision Date</td>
+        <td><input type="date"></td>
+
+
+
+
+
+<td>Auto Cleaning Frequency</td>
+      <td ><select>
+            <option>-- Select --</option>
+            <option>Every 1 Panel</option>
+ <option>Every 2 Panel</option>
+ <option>Every 3 Panel</option>
+ <option>Every 4 Panel</option>
+ <option>Every 5 Panel</option>
+ <option>Every 6 Panel</option>
+<option>More Than 6 panels</option>
+            	        </select>
+</td>
+
+</tr>
+
+<tr>
+    <td>Previous Assembly Status</td>
+
+      <td ><select>
+            <option>-- Select --</option>
+            <option>Yes</option>
+            <option>No</option>
+          
+	        </select></td>
+
+<td>Auto Cleaning Method</td>
+      <td ><select>
+            <option>-- Select --</option>
+            <option>wet&Dry&Vaccum </option>
+            <option>wet&2Dry&vaccum</option>
+ <option>wet&2Dry&2vaccum</option>
+ <option>2wet&2Dry&2vaccum</option>
+
+	        </select>
+</td>
+
+</tr>
+
+<tr>
+    <td colspan="2" class="section">PASTE</td>
+<td>Stencil No & Visual Inspection Status</td>
+   
+    <td colspan="1"><input type="text"></td>
+
+
+</tr>
+
+<tr>
+<td>Paste Details </td>
+       <td >
+<select id="pasteDetails" onchange="updateLabels()">
+    <option value="">-- Select --</option>
+    <option value="leaded">ALPHA OM-6106 4-M14 63sn/37Pb</option>
+    <option value="leaded">ALPHA OM-6106 4-M17 63sn/37Pb</option>
+    <option value="low temp paste">ALPHA OM-565 5-M19 HRL3</option>
+    <option value="leadfree">ALPHA CVP 390 4-M17 SACX0807</option>
+<option value="leadfree">ALPHA CVP 390 4-M17 SAC305</option>
+
+ <option value="l">Leaded</option>
+ <option value="f">LeadFree</option>
+<td>PCB Baking (as per recommended)</td>
+      <td ><select onchange="pcbBakingChange(this)">
+            <option>-- Select --</option>
+            <option>Yes</option>
+            <option>No</option>
+<option>Not applicable</option>
+
+	        </select>
+</td>
+
+
+</select>
+
+</td>
+</tr>
+
+<tr>
+ 
+    <td>Paste Expiry</td>
+<td>
+<select onchange="expiryChange(this)">
+    <option value="">-- Select --</option>
+    <option value="Within expiry date">Within expiry date</option>
+    <option value="Expired">Expired</option>
+</select>
+</td>
+<td colspan="2" class="section">SPI(Solder paste Inspection)</td>
+
+<script>
+function expiryChange(select) {
+
+    let msg = "Solder paste Expired";
+
+    let boxes = document.getElementsByClassName("deviation");
+
+    if (select.value === "Expired") {
+
+        for (let i = 0; i < boxes.length; i++) {
+
+            if (boxes[i].value.trim() === "") {
+                boxes[i].value = msg;
+                boxes[i].style.color = "red";
+                break;
+            }
+        }
+
+    } else if (select.value === "Within expiry date") {
+
+        // remove the observation if it exists
+        for (let i = 0; i < boxes.length; i++) {
+
+            if (boxes[i].value === msg) {
+                boxes[i].value = "";
+                boxes[i].style.color = "black";
+                break;
+            }
+        }
+    }
+}
+function addObservation(text) {
+
+    let boxes = document.getElementsByClassName("obs");
+
+    // prevent duplicate
+    for (let i = 0; i < boxes.length; i++) {
+        if (boxes[i].value === text) {
+            return;
+        }
+    }
+
+    // find empty box
+    for (let i = 0; i < boxes.length; i++) {
+        if (boxes[i].value.trim() === "") {
+            boxes[i].value = text;
+            boxes[i].style.color = "red";
+            return;
+        }
+    }
+
+    // ❗ If no empty box → create new row and retry
+    addObservationRow();
+
+    // wait a moment for DOM update then insert
+    setTimeout(() => addObservation(text), 50);
+}
+
+
+
+
+
+</script>
+
+
+
+
+</tr>
+
+
+<tr>
+   <td>Paste Thawing (as per Recommended)</td>
+
+<td>
+    <select onchange="pasteThawingChange(this)">
+    <option value="">-- Select --</option>
+    <option value="Yes">Yes</option>
+    <option value="No">No</option>
+</select>
+
+</td> 
+<td>Solder Paste Inspection</td>
+<td><select>
+            <option>-- Select --</option>
+            <option>100% as per check plot</option>
+            <option>On Sample basis</option>
+<option>No Facility</option>
+	        </select></td>
+
+    
+</tr>
+<tr>
+    <td>Solder Paste Mixing</td>
+
+    <td><select>
+            <option>-- Select --</option>
+            <option>Both manual & Machine Mixing</option>
+            <option>Manual Mixing</option>
+<option>Machine Mixing</option>
+	        </select></td>
+    <td>SPI Inspection Conditions</td>
+<td>
+<select onchange="spiConditionCheck(this)">
+    <option>-- Select --</option>
+    <option>Asper Std Recommendations</option>
+    <option>Not as per Recommendations</option>
+    <option>No Facility</option>
+</select>
+</td>
+
+
+</tr>
+<tr>
+    <td colspan="2" class="section">PICK & PLACE</td>
+<td colspan="2" class="section">REFLOW</td>
+    
+</tr>
+
+
+<tr>
+<td>Pick & place Program</td>
+    <td colspan="1"><input type="text"></td>
+
+
+<td>No of reflow Zones</td>
+<td><select>
+            <option>-- Select --</option>
+            <option>7</option>
+            <option>8</option>
+<option>9</option> <option>10</option>
+	        </select></td>
+
+
+</tr>
+
+
+
+
+
+<tr>
+    <td>Feeder Buy-off(as per Process)</td>
+    <td><select>
+            <option>-- Select --</option>
+            <option>Verified Ok</option>
+            <option>No</option>
+	        </select></td>
+
+<td>Cooling Zones</td>
+<td><select>
+            <option>-- Select --</option>
+            <option>0</option>
+            <option>1</option>
+<option>2</option> <option>3</option><option>4</option>
+	        </select></td>
+
+
+
+
+
+
+
+
+
+
+
+
+    </tr>
+
+
+
+
+
+
+<tr>
+    <td>No of MSL Components</td>
+    <td><select>
+            <option>-- Select --</option>
+            <option>1</option>
+            <option>2</option>
+<option>3</option> <option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option>
+	        </select></td>
+<td>Reflow Profile(as per defined)</td>
+ <td><select onchange="reflowCheck(this)">
+            <option>-- Select --</option>
+            <option>Done</option>
+            <option>Not Done</option>
+<option>As Per Pervious</option>
+
+	        </select></td>
+
+ 
+
+
+
+
+
+
+    
+</tr>
+
+
+
+
+
+<tr>
+    <td>Support tools</td>
+    <td><select onchange="supportToolsObservation(this)">
+            <option>-- Select --</option>
+            <option>used</option>
+            <option>Not used</option>
+<option>NA</option>
+	        </select></td>
+
+ <td>Profile Date</td>
+    <td><input type="date"></td>
+
+
+    
+
+
+</td>
+  </tr>
+
+
+
+
+
+<tr>
+   <td>Method of Control Floor life of MSL Components</td>
+ <td><select>
+            <option>-- Select --</option>
+            <option>Vaccum Sealing</option>
+            <option>Dry Chamber</option>
+<option>Vaccum Sealing+Dry Chamber</option>
+
+	        </select></td>
+<td id="soakLabel">Soak Time</td>
+<td><select onchange="limitCheck(this, 'Soak Time')">
+            <option>-- Select --</option>
+            <option>Within the limit ok</option>
+            <option>Exceeds Limit</option>
+<option>Profile Not Done</option>
+	        </select></td>
+
+
+
+   </tr>
+<tr>
+<td colspan="2" class="section">Process controls</td>
+
+<td id="tal">TAL Time</td>
+<td><select onchange="limitCheck(this, 'TAL Time')">
+            <option>-- Select --</option>
+            <option>Within the limit ok</option>
+            <option>Exceeds Limit</option>
+<option>Profile Not Done</option>
+	        </select></td>
+
+
+
+</tr>
+<tr> 
+
+<td>Raw material stored in specified location</td>
+<td><select>
+            <option>-- Select --</option>
+            <option>Ok</option>
+            <option>To be Improved</option>
+<option>No Specified location</option>
+    	        </select></td>
+<td id="peak">Peak Temperature</td>
+<td><select onchange="limitCheck(this, 'Peak Temperature')">
+            <option>-- Select --</option>
+            <option>Within the limit ok</option>
+            <option>Exceeds Limit</option>
+<option>Profile Not Done</option>
+	        </select></td>
+
+
+  
+
+
+
+
+
+
+</tr>
+<tr>
+
+<td>Floor ESD Controls</td>
+<td><select>
+            <option>-- Select --</option>
+             <option>OK</option>
+    <option>Need to Improve</option>
+    <option>Some areas found Not OK</option>
+    <option>Not asper Recommended</option>
+	        </select>
+<td>PWI % (<100%)</td>
+<td><select onchange="limitCheck(this, 'PWI %')">
+            <option>-- Select --</option>
+            <option>Within the limit ok</option>
+            <option>Exceeds Limit</option>
+<option>Profile Not Done</option>
+	        </select></td>
+
+
+ 
+
+</tr>
+<tr>
+<td>Finished PCB's Storage condition</td>
+<td>
+<select onchange="finishedStorageCheck(this)">
+    <option>-- Select --</option>
+    <option>OK</option>
+    <option>Need to Improve</option>
+    <option>Not Good</option>
+</select>
+</td>
+
+<td colspan="2" class="section">AOI</td>
+</tr>
+<tr>
+ <td>Ambient condition(T≤25°C & 30 to 60% RH)</td>
+<td colspan="1"><input type="text"></td>
+
+   
+<td>AOI Program Name</td>
+<td colspan="1"><input type="text"></td>
+
+
+    
+    
+</tr>
+<tr>
+  <td>X-Ray frequency</td>
+<td><select>
+            <option>-- Select --</option>
+            <option>Not Applicable</option>
+            <option>Done</option>
+	        </select></td>
+
+<td>AOI Validation</td>
+<td ><select onchange="aoiValidationCheck(this)">
+            <option>-- Select --</option>
+            <option>Faulty PCB Verified ok</option>
+            <option>Faulty PCB Not Verified </option>
+	        </select></td>
+</tr>
+
+<tr>
+    <td>Gule Locations & Curing Method</td>
+<td><select>
+            <option>-- Select --</option>
+            <option>Not Applicable</option>
+            <option>Verified ok</option> <option>
+<option>Not curing properly</option> 
+	        </select></td>
+
+
+<td>AOI Data Tracking</td>
+<td ><select onchange="aoiDataTrackingCheck(this)">
+            <option>-- Select --</option>
+            <option>Available</option>
+            <option>Not Available</option>
+	        </select></td>  
+    
+    
+</tr>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Deviations Section -->
+<tr>
+    <td colspan="4" class="section">Deviations</td>
+</tr>
+
+<tbody id="deviationContainer">
+
+<tr>
+    <td colspan="2">
+        <input type="text" class="deviation">
+    </td>
+    <td colspan="2">
+        <input type="text" class="deviation">
+    </td>
+</tr>
+
+<tr>
+    <td colspan="2">
+        <input type="text" class="deviation">
+    </td>
+    <td colspan="2">
+        <input type="text" class="deviation">
+    </td>
+</tr>
+
+
+
+</tbody>
+
+<tr><td colspan="4" class="section">Observations</td>
+</tr>
+<tbody id="obsContainer">
+
+<tr>
+    <td colspan="2"><input type="text" class="obs"></td>
+    <td colspan="2"><input type="text" class="obs"></td>
+</tr>
+
+<tr>
+    <td colspan="2"><input type="text" class="obs"></td>
+    <td colspan="2"><input type="text" class="obs"></td>
+</tr>
+
+
+
+</tbody>
+
+<script>
+function changeColor(select) {
+    if (select.value === "exceed") {
+        select.style.color = "red";
+    } else {
+        select.style.color = "black";
+    }
+}
+</script>
+
+
+
+<script>
+function updateLabels() {
+
+    let paste = document.getElementById("pasteDetails").value;
+
+    if (paste === "leaded") {
+
+        document.getElementById("soakLabel").innerHTML =
+            "Soak Time (150-180°C)(90-120 Sec)";
+ document.getElementById("tal").innerHTML =
+            "TAl Time 217°C(45-80 Sec)";
+ document.getElementById("peak").innerHTML =
+            "Peak Temperature(235-255°C)";
+
+    } else if (paste === "leadfree") {
+
+        document.getElementById("soakLabel").innerHTML =
+            "Soak Time (155-175°C)(50-100Sec)";
+ document.getElementById("tal").innerHTML =
+            "TAL Time 217°C(45-90Sec)";
+ document.getElementById("peak").innerHTML =
+            "Peak Temperature(217-250°C)";
+    }
+
+else if(paste==="low temp paste"){
+document.getElementById("soakLabel").innerHTML =
+            "Soak Time (100-120°C)(70-120Sec)";
+ document.getElementById("tal").innerHTML =
+            "TAl Time 146°C(60-120 Sec)";
+ document.getElementById("peak").innerHTML =
+            "Peak Temperature(175-185°C)";
+
+}else if(paste==="l"){
+document.getElementById("soakLabel").innerHTML =
+            "Soak Time (150-180°C)(90-120Sec)";
+ document.getElementById("tal").innerHTML =
+            "TAl Time 178°C(30-90 Sec)";
+ document.getElementById("peak").innerHTML =
+            "Peak Temperature(210-220°C)";
+
+}
+else if(paste==="f"){
+document.getElementById("soakLabel").innerHTML =
+            "Soak Time (155-175°C)(60-100Sec)";
+ document.getElementById("tal").innerHTML =
+            "TAl Time 217°C(45-60 Sec)";
+ document.getElementById("peak").innerHTML =
+            "Peak Temperature(235-245°C)";
+
+}
+
+
+
+}
+</script>
+<script>
+function pasteThawingChange(select) {
+
+    let msg = "Paste thawing details not updated";
+    let boxes = document.getElementsByClassName("deviation");
+
+    if (select.value === "No") {
+
+        // prevent duplicate
+        for (let i = 0; i < boxes.length; i++) {
+            if (boxes[i].value === msg) return;
+        }
+
+        // add observation
+        for (let i = 0; i < boxes.length; i++) {
+            if (boxes[i].value.trim() === "") {
+                boxes[i].value = msg;
+                boxes[i].style.color = "red";
+                break;
+            }
+        }
+    }
+
+    else {
+
+        // remove observation when corrected (Yes or blank)
+        for (let i = 0; i < boxes.length; i++) {
+            if (boxes[i].value === msg) {
+                boxes[i].value = "";
+                boxes[i].style.color = "black";
+            }
+        }
+    }
+}</script>
+<script>
+function limitCheck(select, label) {
+
+    let msg = label + " exceeds limit";
+    let boxes = document.getElementsByClassName("deviation");
+
+    if (select.value === "Exceeds Limit") {
+
+        // Prevent duplicate
+        for (let i = 0; i < boxes.length; i++) {
+            if (boxes[i].value === msg) return;
+        }
+
+        // Find empty deviation box
+        for (let i = 0; i < boxes.length; i++) {
+            if (boxes[i].value.trim() === "") {
+                boxes[i].value = msg;
+                boxes[i].style.color = "red";
+                return;
+            }
+        }
+
+        // No empty box, add a new row
+        addDeviationRow();
+
+        // Insert into the newly created row
+        setTimeout(() => limitCheck(select, label), 50);
+    }
+
+    else {
+
+        // Remove deviation when corrected
+        for (let i = 0; i < boxes.length; i++) {
+            if (boxes[i].value === msg) {
+                boxes[i].value = "";
+                boxes[i].style.color = "black";
+                break;
+            }
+        }
+    }
+}
+</script><script>
+function reflowCheck(select) {
+
+    let msg = "Reflow Profile Not Carried Out";
+    let boxes = document.getElementsByClassName("deviation");
+
+    if (select.value === "Not Done") {
+
+        // Prevent duplicate
+        for (let i = 0; i < boxes.length; i++) {
+            if (boxes[i].value === msg) return;
+        }
+
+        // Add deviation
+        for (let i = 0; i < boxes.length; i++) {
+            if (boxes[i].value.trim() === "") {
+                boxes[i].value = msg;
+                boxes[i].style.color = "red";
+                break;
+            }
+        }
+   // No empty box, create a new row
+        addDeviationRow();
+
+        // Retry after row is added
+        setTimeout(() => spiConditionCheck(select), 50);
+
+    } else {
+
+        // Remove deviation when corrected
+        for (let i = 0; i < boxes.length; i++) {
+            if (boxes[i].value === msg) {
+                boxes[i].value = "";
+                boxes[i].style.color = "black";
+                break;
+            }
+        }
+    }
+}
+</script>
+<script>
+function aoiValidationCheck(select) {
+
+    let msg = "AOI - Faulty PCB Not Verified";
+    let boxes = document.getElementsByClassName("deviation");
+
+    if (select.value === "Faulty PCB Not Verified") {
+
+        // prevent duplicate
+        for (let i = 0; i < boxes.length; i++) {
+            if (boxes[i].value === msg) return;
+        }
+
+        // add observation
+        for (let i = 0; i < boxes.length; i++) {
+            if (boxes[i].value.trim() === "") {
+                boxes[i].value = msg;
+                boxes[i].style.color = "red";
+                break;
+            }
+        }
+
+   // No empty box, create a new row
+        addDeviationRow();
+
+        // Retry after row is added
+        setTimeout(() => aoiValidationCheck(select), 50);
+
+    }
+
+    else {
+
+        // remove when corrected
+        for (let i = 0; i < boxes.length; i++) {
+            if (boxes[i].value === msg) {
+                boxes[i].value = "";
+                boxes[i].style.color = "black";
+                break;
+            }
+        }
+    }
+}</script>
+<script>
+function pcbBakingChange(select) {
+
+    let msg = "PCB Baking Not done";
+    let boxes = document.getElementsByClassName("deviation");
+
+    if (select.value === "No") {
+
+        // prevent duplicate
+        for (let i = 0; i < boxes.length; i++) {
+            if (boxes[i].value === msg) return;
+        }
+
+        // add observation
+        for (let i = 0; i < boxes.length; i++) {
+            if (boxes[i].value.trim() === "") {
+                boxes[i].value = msg;
+                boxes[i].style.color = "red";
+                break;
+            }
+        }
+   // No empty box, create a new row
+        addDeviationRow();
+
+        // Retry after row is added
+        setTimeout(() => pcbBakingChange(select), 50);
+
+    }
+
+    else {
+
+        // remove observation when corrected
+        for (let i = 0; i < boxes.length; i++) {
+            if (boxes[i].value === msg) {
+                boxes[i].value = "";
+                boxes[i].style.color = "black";
+            }
+        }
+    }
+}
+</script>
+<script>
+function stencilStrengthCheck(select) {
+
+    let msg = "Stencil Strength exceeds limit";
+    let boxes = document.getElementsByClassName("deviation");
+
+    if (select.value === "Exceeds Limit") {
+
+        // prevent duplicate
+        for (let i = 0; i < boxes.length; i++) {
+            if (boxes[i].value === msg) return;
+        }
+
+        // add observation
+        for (let i = 0; i < boxes.length; i++) {
+            if (boxes[i].value.trim() === "") {
+                boxes[i].value = msg;
+                boxes[i].style.color = "red";
+                break;
+            }
+        }
+ // No empty box, create a new row
+        addDeviationRow();
+
+        // Retry after row is added
+        setTimeout(() => stencilStrengthCheck(select), 50);
+
+    }
+
+    else {
+
+        // remove observation when corrected
+        for (let i = 0; i < boxes.length; i++) {
+            if (boxes[i].value === msg) {
+                boxes[i].value = "";
+                boxes[i].style.color = "black";
+            }
+        }
+    }
+}
+</script>
+
+<script>
+function printerToolsCheck(select) {
+
+    let msg = "Printer support tools not used";
+    let boxes = document.getElementsByClassName("deviation");
+
+    if (select.value === "Not Used") {
+
+        // prevent duplicate
+        for (let i = 0; i < boxes.length; i++) {
+            if (boxes[i].value === msg) return;
+        }
+
+        // add observation
+        for (let i = 0; i < boxes.length; i++) {
+            if (boxes[i].value.trim() === "") {
+                boxes[i].value = msg;
+                boxes[i].style.color = "red";
+                break;
+            }
+        }
+ // No empty box, create a new row
+        addDeviationRow();
+
+        // Retry after row is added
+        setTimeout(() =>  printerToolsCheck(select), 50);
+
+
+
+    }
+
+    else {
+
+        // remove observation when corrected
+        for (let i = 0; i < boxes.length; i++) {
+            if (boxes[i].value === msg) {
+                boxes[i].value = "";
+                boxes[i].style.color = "black";
+            }
+        }
+    }
+}
+
+
+</script>
+
+
+
+
+
+
+
+
+<script>
+function supportToolsObservation(select) {
+
+    let msg = "Pick & Place Support tools not used";
+    let boxes = document.getElementsByClassName("deviation");
+
+    if (select.value === "Not used") {
+
+        // prevent duplicate
+        for (let i = 0; i < boxes.length; i++) {
+            if (boxes[i].value === msg) return;
+        }
+
+        // add observation
+        for (let i = 0; i < boxes.length; i++) {
+            if (boxes[i].value.trim() === "") {
+                boxes[i].value = msg;
+                boxes[i].style.color = "red";
+                break;
+            }
+        }
+   // No empty box, create a new row
+        addDeviationRow();
+
+        // Retry after row is added
+        setTimeout(() => supportToolsObservation(select), 50);
+
+    }
+
+    else {
+
+        // remove observation when corrected
+        for (let i = 0; i < boxes.length; i++) {
+            if (boxes[i].value === msg) {
+                boxes[i].value = "";
+                boxes[i].style.color = "black";
+                break;
+            }
+        }
+    }
+}
+
+</script>
+<script>
+function aoiDataTrackingCheck(select) {
+
+    let msg = "AOI Data Tracking not available";
+    let boxes = document.getElementsByClassName("deviation");
+
+    if (select.value === "Not Available") {
+
+        // prevent duplicate
+        for (let i = 0; i < boxes.length; i++) {
+            if (boxes[i].value === msg) return;
+        }
+
+        // add observation
+        for (let i = 0; i < boxes.length; i++) {
+            if (boxes[i].value.trim() === "") {
+                boxes[i].value = msg;
+                boxes[i].style.color = "red";
+                break;
+            }
+        }
+   // No empty box, create a new row
+        addDeviationRow();
+
+        // Retry after row is added
+        setTimeout(() => aoiDataTrackingCheck(select), 50);
+
+    }
+
+    else {
+
+        // remove observation when corrected
+        for (let i = 0; i < boxes.length; i++) {
+            if (boxes[i].value === msg) {
+                boxes[i].value = "";
+                boxes[i].style.color = "black";
+                break;
+            }
+        }
+    }
+}</script>
+<script>
+function spiConditionCheck(select) {
+
+    let msg = "SPI Inspection condition not as per recommendations";
+    let boxes = document.getElementsByClassName("deviation");
+
+    if (select.value === "Not as per Recommendations") {
+
+        // Prevent duplicate
+        for (let i = 0; i < boxes.length; i++) {
+            if (boxes[i].value === msg) return;
+        }
+
+        // Find empty deviation box
+        for (let i = 0; i < boxes.length; i++) {
+            if (boxes[i].value.trim() === "") {
+                boxes[i].value = msg;
+                boxes[i].style.color = "red";
+                return;
+            }
+        }
+
+        // No empty box, create a new row
+        addDeviationRow();
+
+        // Retry after row is added
+        setTimeout(() => spiConditionCheck(select), 50);
+    }
+    else {
+
+        // Remove deviation when corrected
+        for (let i = 0; i < boxes.length; i++) {
+            if (boxes[i].value === msg) {
+                boxes[i].value = "";
+                boxes[i].style.color = "black";
+                break;
+            }
+        }
+    }
+}
+
+
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+function addObservationRow() {
+
+    let container = document.getElementById("obsContainer");
+
+    let row = document.createElement("tr");
+
+    row.innerHTML = `
+        <td colspan="2"><input type="text" class="obs"></td>
+        <td colspan="2"><input type="text" class="obs"></td>
+    `;
+
+    container.appendChild(row);
+}
+
+
+</script>
+<script>
+function printReport() {
+
+    const elements = [];
+
+    document.querySelectorAll("input[type='text']").forEach(function(input){
+
+        const div = document.createElement("div");
+
+        div.innerText = input.value;
+
+if (input.classList.contains("deviation")) {
+    div.style.color = "red";   // Only deviations are red
+} else {
+    div.style.color = "#000";  // Observations and all other fields are black
+}
+        div.style.whiteSpace = "pre-wrap";
+        div.style.wordBreak = "normal";
+        div.style.overflowWrap = "break-word";
+        div.style.width = "100%";
+        div.style.minHeight = input.offsetHeight + "px";
+        div.style.fontFamily = "Arial";
+        div.style.fontSize = "12px";
+        div.style.lineHeight = "16px";
+
+        input.style.display = "none";
+        input.parentNode.insertBefore(div,input);
+
+        elements.push({
+            input: input,
+            div: div
+        });
+
+    });
+
+    window.print();
+
+    setTimeout(function(){
+
+        elements.forEach(function(item){
+
+            item.div.remove();
+            item.input.style.display = "";
+
+        });
+
+    },1000);
+
+}
+</script>
+<script>
+function addDeviationRow() {
+
+    let container = document.getElementById("deviationContainer");
+
+    let row = document.createElement("tr");
+
+    row.innerHTML = `
+        <td colspan="2"><input type="text" class="deviation"></td>
+        <td colspan="2"><input type="text" class="deviation"></td>
+    `;
+
+    container.appendChild(row);
+}
+</script>
+<script>
+function finishedStorageCheck(select) {
+
+    let msg = "Finished PCB's Storage condition not good";
+    let boxes = document.getElementsByClassName("deviation");
+
+    if (select.value === "Not Good") {
+
+        // Prevent duplicate
+        for (let i = 0; i < boxes.length; i++) {
+            if (boxes[i].value === msg) return;
+        }
+
+        // Find empty deviation box
+        for (let i = 0; i < boxes.length; i++) {
+            if (boxes[i].value.trim() === "") {
+                boxes[i].value = msg;
+                boxes[i].style.color = "red";
+                return;
+            }
+        }
+
+        // Add a new row if all boxes are full
+        addDeviationRow();
+        setTimeout(() => finishedStorageCheck(select), 50);
+
+    } else {
+
+        // Remove the deviation if selection changes
+        for (let i = 0; i < boxes.length; i++) {
+            if (boxes[i].value === msg) {
+                boxes[i].value = "";
+                boxes[i].style.color = "black";
+                break;
+            }
+        }
+    }
+}
+
+</script>
+
+
+
+<tr>
+ <td>Audited By</td>
+    <td><select>
+            <option>-- Select --</option>
+            <option>L Raj Kumar</option>
+            <option>P S Ramana</option>
+	        </select></td>
+
+    <td>Reviewed By</td>
+    <td><select>
+            <option>-- Select --</option>
+            <option>P S Ramana</option>
+<option>       </option>
+            <option>V Srinivas</option>
+	        </select></td>
+</tr>
+
+<tr>
+    <td>Lot Clearance Status</td>
+    <td><select>
+            <option>-- Select --</option>
+            <option>Given</option>
+            <option>Not Given</option>
+	        </select></td>
+
+    <td>Approved By</td>
+    <td><select>
+            <option>-- Select --</option>
+            <option>V Srinivas</option>
+            <option>   </option>
+	        </select></td>
+</tr>
+
+</table>
+
+</body>
+</html>
